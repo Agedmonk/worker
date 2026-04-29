@@ -103,7 +103,7 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
           # 【修改点】同时追踪 _worker.js 和 _worker.zip
-          git add worker.js _worker.zip
+          git add _worker.js _worker.zip
           
           if git diff --staged --quiet; then
             echo "No changes to commit, the files are already up-to-date."
