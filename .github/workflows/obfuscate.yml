@@ -1,4 +1,4 @@
-name: 文件混淆
+name: 代码混淆并生成worker.js文件
 
 on:
   workflow_dispatch:
