@@ -727,7 +727,7 @@
                         const dynamicHomepage = 'https://www.' + rootDomain;
                         
                         // 检查是否有自定义首页URL配置，若无则使用动态生成的根域名
-                        const customHomepage = getConfigValue(env.homepage || env.HOMEPAGE) || dynamicHomepage;
+                        const customHomepage = getConfigValue(env.homepage || env.HOMEPAGE || dynamicHomepage);
                         if (customHomepage && customHomepage.trim()) {
                             try {
                                 // 从自定义URL获取内容
