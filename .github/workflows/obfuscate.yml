@@ -8,6 +8,10 @@ on:
     paths:
       - 'worker_source.js'
 
+# 【关键修复 1】显式赋予 GITHUB_TOKEN 代码仓库的写入权限，否则最后一步 push 会失败
+permissions:
+  contents: write
+
 jobs:
   build-and-obfuscate:
     runs-on: ubuntu-latest
@@ -97,5 +101,6 @@ jobs:
             echo "No changes to commit, the obfuscated file is already up-to-date."
           else
             git commit -m "部署使用本文件"
-            git push
+            # 【关键修复 2】如果触发工作流的分支不是默认分支，建议确保 push 到当前触发的分支
+            git push origin HEAD
           fi
